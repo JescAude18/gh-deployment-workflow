@@ -1,1 +1,160 @@
-Hello, GitHub Actions!
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hello, GitHub Actions!</title>
+		<style>
+			:root {
+				color-scheme: light;
+				--bg: #f5f7ff;
+				--bg-accent: #e8efff;
+				--surface: rgba(255, 255, 255, 0.9);
+				--text: #1f2937;
+				--muted: #4b5563;
+				--primary: #2563eb;
+				--secondary: #7c3aed;
+				--border: rgba(37, 99, 235, 0.18);
+				--shadow: 0 24px 60px rgba(37, 99, 235, 0.14);
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: Arial, Helvetica, sans-serif;
+				color: var(--text);
+				background:
+					radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 32%),
+					radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.2), transparent 28%),
+					linear-gradient(135deg, var(--bg), var(--bg-accent));
+				display: grid;
+				place-items: center;
+				padding: 24px;
+			}
+
+			.card {
+				width: min(720px, 100%);
+				padding: 40px;
+				border: 1px solid var(--border);
+				border-radius: 28px;
+				background: var(--surface);
+				backdrop-filter: blur(10px);
+				box-shadow: var(--shadow);
+			}
+
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				padding: 8px 14px;
+				border-radius: 999px;
+				background: rgba(37, 99, 235, 0.1);
+				color: var(--primary);
+				font-size: 0.9rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+
+			.eyebrow::before {
+				content: "";
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, var(--primary), var(--secondary));
+			}
+
+			h1 {
+				margin: 20px 0 12px;
+				font-size: clamp(2.4rem, 6vw, 4.5rem);
+				line-height: 1.05;
+				color: #111827;
+			}
+
+			.highlight {
+				background: linear-gradient(90deg, var(--primary), var(--secondary));
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+			}
+
+			p {
+				margin: 0 0 18px;
+				font-size: 1.05rem;
+				line-height: 1.7;
+				color: var(--muted);
+			}
+
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+				gap: 16px;
+				margin-top: 28px;
+			}
+
+			.tile {
+				padding: 18px;
+				border-radius: 20px;
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 242, 255, 0.92));
+				border: 1px solid rgba(99, 102, 241, 0.15);
+			}
+
+			.tile strong {
+				display: block;
+				margin-bottom: 8px;
+				color: #111827;
+			}
+
+			.tag {
+				display: inline-block;
+				margin-top: 24px;
+				padding: 10px 14px;
+				border-radius: 999px;
+				background: rgba(124, 58, 237, 0.1);
+				color: var(--secondary);
+				font-weight: 700;
+			}
+
+			@media (max-width: 640px) {
+				.card {
+					padding: 28px 22px;
+					border-radius: 24px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="card">
+			<span class="eyebrow">GitHub Actions Demo</span>
+			<h1>
+				Hello, <span class="highlight">GitHub Actions</span>!
+			</h1>
+			<p>
+				This static page is ready to be deployed with a GitHub Pages workflow.
+				It uses a soft gradient background, colored text accents, and a clean
+				layout to make the landing page feel a little more polished.
+			</p>
+
+			<div class="grid">
+				<section class="tile">
+					<strong>Simple</strong>
+					Clean HTML with no framework needed.
+				</section>
+				<section class="tile">
+					<strong>Styled</strong>
+					Gradient text, cards, and subtle shadows.
+				</section>
+				<section class="tile">
+					<strong>Deployable</strong>
+					Ready for GitHub Pages via Actions.
+				</section>
+			</div>
+
+			<span class="tag">Static site ready for deployment</span>
+		</main>
+	</body>
+</html>
