@@ -1,0 +1,36 @@
+---
+
+name: gh-deployment-workflow
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'index.html'
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        use: actions/checkout@v5
+
+      - name: Check file existence
+        run: |
+          if [[ -f "index.html" ]]; then
+            echo -e "index.html exists."
+          else
+            echo -e "index.html doesn't exist."
+            exit 1
+          fi
+
+      - name: upload-index
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: 'index.html'
+
+  deploy:
+    runs-on: ubuntu-24.04
+    needs: prepare
+    steps:
+      - name: deploy-index
+        uses: actions/deploy-pages@v4
